@@ -23,6 +23,9 @@ const authRouter = require('./Routes/auth')
 
 app.use("/api/auth", authRouter)
 
+app.get( "/", (req, res) => {
+  res.send('hello')
+})
 
 
 mongoose.connect(mongo)
