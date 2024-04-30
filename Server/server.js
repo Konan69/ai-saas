@@ -12,6 +12,7 @@ const mongo = process.env.CONNECTION_STRING
 app.use(cors())
 app.options('*', cors)
 app.use(express.json()) 
+
 app.use(bodyParser.urlencoded({extended:true}))
 
 const port = process.env.PORT || 4242
