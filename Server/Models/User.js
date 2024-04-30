@@ -17,11 +17,11 @@ const userSchema = new mongoose.Schema({
       "please provide a valid email"]
   },
   customerId: {
-    type: string,
+    type: String,
     default: '',
   },
   subscription: {
-    type: string,
+    type: String,
     default: '',
   },
   password: {
@@ -48,7 +48,7 @@ userSchema.methods.matchPassword = async function(password) {
 }
 
 //sign jwt and return
-userSchema.methods.getSignedJwtToken = function() {
+userSchema.methods.getSignedJwtToken = function(res) {
   const accessToken = jwt.sign({id: this._id}, process.env.JWT_ACCESS_SECRET, { expiresIn: process.env.JWT_EXPIRE })
   const refreshToken = jwt.sign({id: this._id}, process.env.JWT_REFRESH_SECRET, { expiresIn: process.env.JWT_REFRESH_EXPIRE })
   res.cookie('refreshToken', `${refreshToken}`, { maxAge: 86400 * 7000, httpOnly: true })
