@@ -6,7 +6,7 @@ import { themeSettings } from './theme'
 import Navbar from "./Components/navbar"
 import HomePage from './Pages/homePage'
 // import LoginPage from './Pages/loginPage'
-// import RegisterPage from './Pages/registerPage'
+import RegisterPage from './Pages/registerPage'
 
 function App() {
   const theme = useMemo(() => createTheme(themeSettings()), [])
@@ -20,7 +20,7 @@ function App() {
       <Routes>
       <Route exact path="/" element = {<HomePage/>} />
       {/* <Route exact path="/login" element={<LoginPage />} />  */}
-      {/* <Route exact path="/register" element={<RegisterPage />} /> */}
+      <Route exact path="/register" element={<RegisterPage />} />
       </Routes>
       </ThemeProvider>
     </div>
